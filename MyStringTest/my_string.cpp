@@ -192,7 +192,7 @@ MyString& MyString::insert(const int pos, const char* str){
     return *this; 
 }
 MyString& MyString::insert(const int pos, const MyString& str){ 
-    if(pos<0 || pos >= str_length) return *this; // 잘못된 위치에 삽입 시 무시
+    if(pos<0 || pos > str_length) return *this; // 잘못된 위치에 삽입 시 무시
     const int NEW_LENGTH = str_length + str.getLen(); 
     if(capacity < NEW_LENGTH){ // 현재 가진 메모리보다 더 크면 갱신 
         capacity = NEW_LENGTH; 
@@ -295,7 +295,8 @@ MyString& MyString::replace(const MyString& target, const MyString& new_str){
     while(idx!=-1){
     	//idx가 계속 존재하는 동안 진행 (타겟이 겹치는 위치를 찾았다면)
         //타겟을 없애고 new_str을 넣는다.
-        erase(idx,target.getLen()); //해당 길이만큼 삭제
+        std::cout << idx << std::endl;
+        erase(idx,target.getLen());
         //삭제했으면 추가도 해줘야함.
         insert(idx,new_str);
         idx = in(target);
