@@ -8,14 +8,14 @@ public:
 // Bus 클래스
 class Bus: public Movable{
 public:
-	void move(){ //인터페이스 가상 함수 구현
+	void move() override{ //인터페이스 가상 함수 구현
     	std::cout << "도로를 따라 이동 중" << std::endl;
     }
 };
 // Train 클래스
 class Train: public Movable{
 public:
-	void move(){ 
+	void move() override{ 
     	std::cout << "선로를 따라 이동 중" << std::endl;
     }
 };
